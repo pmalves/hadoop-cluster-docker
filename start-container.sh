@@ -1,34 +1,35 @@
 #!/bin/bash
 
-# the default node number is 3
-N=${1:-3}
+HADOOP_VERSION=2.7.3
 
+# the default node number is 2
+N=${1:-2}
 
-# start hadoop master container
-sudo docker rm -f hadoop-master &> /dev/null
-echo "start hadoop-master container..."
-sudo docker run -itd \
-                --net=hadoop \
-                -p 50070:50070 \
-                -p 8088:8088 \
-                --name hadoop-master \
-                --hostname hadoop-master \
-                kiwenlau/hadoop:1.0 &> /dev/null
-
-
-# start hadoop slave container
+# start hadoop slave containers
 i=1
-while [ $i -lt $N ]
+while [ $i -le $N ]
 do
-	sudo docker rm -f hadoop-slave$i &> /dev/null
 	echo "start hadoop-slave$i container..."
-	sudo docker run -itd \
+	docker run -itd \
 	                --net=hadoop \
 	                --name hadoop-slave$i \
 	                --hostname hadoop-slave$i \
-	                kiwenlau/hadoop:1.0 &> /dev/null
+	                pmgalves/hadoop:${HADOOP_VERSION} &> /dev/null
 	i=$(( $i + 1 ))
 done 
 
+# start hadoop master container
+echo "start hadoop-master container..."
+docker run -itd \
+                --net=hadoop \
+                -p 50070:50070 \
+                -p 8088:8088 \
+                -p 4040:4040 \
+                --name hadoop-master \
+                --hostname hadoop-master \
+                pmgalves/hadoop:${HADOOP_VERSION} &> /dev/null
+
+
+
 # get into hadoop master container
-sudo docker exec -it hadoop-master bash
+docker exec -it hadoop-master bash

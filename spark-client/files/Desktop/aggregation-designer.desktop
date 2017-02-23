@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Pentaho Aggregation Designer
+Type=Application
+Exec=/pentaho/design-tools/aggregation-designer/startaggregationdesigner.sh
+Icon=/pentaho/design-tools/aggregation-designer/pentaho_aggregate_desginer.ico
+Terminal=true

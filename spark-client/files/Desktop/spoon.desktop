@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Pentaho Data Integration
+Type=Application
+Exec=/pentaho/design-tools/data-integration/spoon.sh
+Icon=/pentaho/design-tools/data-integration/spoon.ico
+Terminal=true

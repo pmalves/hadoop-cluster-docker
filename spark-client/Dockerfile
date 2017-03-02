@@ -63,7 +63,7 @@ RUN add-apt-repository ppa:webupd8team/java && \
 	apt-get install -y oracle-java8-installer 
 
 ############## xvnc / xfce installation
-RUN apt-get install -y supervisor net-tools vim xfce4 vnc4server wget firefox chromium-browser chromium-codecs-ffmpeg libwebkitgtk-1.0-0
+RUN apt-get install -y supervisor net-tools iputils-ping vim xfce4 vnc4server wget firefox chromium-browser chromium-codecs-ffmpeg libwebkitgtk-1.0-0
 
 ### Install noVNC - HTML5 based VNC viewer
 RUN mkdir -p $NO_VNC_HOME/utils/websockify \

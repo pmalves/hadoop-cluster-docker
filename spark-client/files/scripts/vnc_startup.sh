@@ -10,6 +10,10 @@ VNC_PWD="pentaho"
 echo "change vnc password!"
 (echo $VNC_PW && echo $VNC_PW) | vncpasswd
 
+## Allow sh files to be executed
+xfconf-query --channel thunar --property /misc-exec-shell-scripts-by-default --create --type bool --set true
+
+
 ##start vncserver and noVNC webclient
 $NO_VNC_HOME/utils/launch.sh --vnc $VNC_IP:$VNC_PORT --listen $NO_VNC_PORT &
 vncserver -kill :1 && rm -rfv /tmp/.X* ; echo "remove old vnc locks to be a reattachable container"

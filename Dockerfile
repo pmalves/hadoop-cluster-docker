@@ -5,7 +5,7 @@ MAINTAINER Pedro Alves <pmgalves@gmail.com>
 WORKDIR /root
 
 # install openssh-server, openjdk and wget
-RUN apt-get update && apt-get install -y software-properties-common openssh-server openjdk-8-jdk wget curl supervisor net-tools iputils-ping vim
+RUN apt-get update && apt-get install -y software-properties-common openssh-server openjdk-8-jdk wget curl supervisor net-tools iputils-ping vim less
 
 ENV HADOOP_VERSION=2.7.3
 ENV SPARK_VERSION=2.1.0

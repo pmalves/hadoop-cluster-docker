@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SPARK_VERSION=2.1.0
+SPARK_VERSION=1.6.3
 
 
 # start spark client container

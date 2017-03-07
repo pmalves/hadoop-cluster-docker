@@ -7,11 +7,11 @@ WORKDIR /root
 # install openssh-server, openjdk and wget
 RUN apt-get update && apt-get install -y software-properties-common openssh-server openjdk-8-jdk wget curl
 
-ENV HADOOP_VERSION=2.7.3
-ENV SPARK_VERSION=2.1.0
-ENV SPARK_HADOOP_VERSION=2.7
+ENV HADOOP_VERSION=2.6.5
+ENV SPARK_VERSION=1.6.3
+ENV SPARK_HADOOP_VERSION=2.6
 
-# instal Spark 2.1.0
+# instal Spark 1.6.3
 RUN \
 	curl http://d3kbcqa49mib13.cloudfront.net/spark-${SPARK_VERSION}-bin-hadoop${SPARK_HADOOP_VERSION}.tgz | tar -xz -C /usr/local/ && \
 	ln -s /usr/local/spark-* /usr/local/spark
@@ -33,7 +33,7 @@ COPY /config/* /tmp/
 RUN mv /tmp/ssh_config ~/.ssh/config && \
 		mkdir -p $HADOOP_CONF_DIR && \
     mv /tmp/*.xml $HADOOP_CONF_DIR && \ 
-		echo spark.yarn.jars hdfs://hadoop-master:9000/spark/* > $SPARK_HOME/conf/spark-defaults.conf
+		echo spark.yarn.jar hdfs://hadoop-master:9000/spark/spark-assembly.jar >> $SPARK_HOME/conf/spark-defaults.conf
 
 
 

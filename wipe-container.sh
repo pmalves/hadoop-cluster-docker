@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HADOOP_VERSION=2.7.3
+HADOOP_VERSION=2.6.5
 
 # the default node number is 3
 N=${1:-5}

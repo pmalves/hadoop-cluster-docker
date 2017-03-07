@@ -23,7 +23,7 @@ then
 					echo Initializing cluster. Copying spark jars...
 
 					$HADOOP_HOME/bin/hdfs dfs -mkdir -p /spark/
-					$HADOOP_HOME/bin/hdfs dfs -copyFromLocal /usr/local/spark/jars/* /spark/ 
+					$HADOOP_HOME/bin/hdfs dfs -copyFromLocal /usr/local/spark/lib/spark-assembly-* /spark/spark-assembly.jar 
 
 
 

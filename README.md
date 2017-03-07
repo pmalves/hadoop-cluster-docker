@@ -12,7 +12,7 @@
 #####1. pull docker image
 
 ```
-docker build -t pmgalves/hadoop:2.7.3 .
+docker build -t pmgalves/hadoop:2.6.5 .
 ```
 
 #####2. create hadoop network

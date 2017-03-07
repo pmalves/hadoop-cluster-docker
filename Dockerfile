@@ -41,7 +41,7 @@ RUN mv /tmp/ssh_config ~/.ssh/config && \
     mv /tmp/hadoop-env.sh /usr/local/hadoop/etc/hadoop/hadoop-env.sh && \
     mv /tmp/*.xml $HADOOP_HOME/etc/hadoop/ && \ 
     mv /tmp/slaves $HADOOP_HOME/etc/hadoop/slaves && \
-		echo spark.yarn.jars hdfs://hadoop-master:9000/spark/* > $SPARK_HOME/conf/spark-defaults.conf
+		echo spark.yarn.jars hdfs://hadoop-master:8020/spark/* > $SPARK_HOME/conf/spark-defaults.conf
 
 # Start and format namenode
 

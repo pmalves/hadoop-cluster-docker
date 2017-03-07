@@ -33,7 +33,7 @@ COPY /config/* /tmp/
 RUN mv /tmp/ssh_config ~/.ssh/config && \
 		mkdir -p $HADOOP_CONF_DIR && \
     mv /tmp/*.xml $HADOOP_CONF_DIR && \ 
-		echo spark.yarn.jars hdfs://hadoop-master:9000/spark/* > $SPARK_HOME/conf/spark-defaults.conf
+		echo spark.yarn.jars hdfs://hadoop-master:8020/spark/* >> $SPARK_HOME/conf/spark-defaults.conf
 
 
 

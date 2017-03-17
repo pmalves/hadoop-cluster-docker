@@ -60,7 +60,8 @@ ENV VNC_PW pentaho
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections 
 RUN add-apt-repository ppa:webupd8team/java && \
 	apt-get update && \
-	apt-get install -y oracle-java8-installer 
+	apt-get install -y oracle-java8-installer && \
+	update-java-alternatives -s java-8-oracle
 
 ############## xvnc / xfce installation
 RUN apt-get install -y supervisor net-tools iputils-ping vim xfce4 vnc4server wget less firefox git chromium-browser chromium-codecs-ffmpeg libwebkitgtk-1.0-0
